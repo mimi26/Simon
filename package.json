@@ -1,0 +1,24 @@
+{
+  "name": "simon",
+  "version": "1.0.0",
+  "description": "game project unit 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "touch test.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimi26/Simon.git"
+  },
+  "author": "Mimi Klein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mimi26/Simon/issues"
+  },
+  "homepage": "https://github.com/mimi26/Simon#readme",
+  "devDependencies": {
+    "eslint": "^3.12.1",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}

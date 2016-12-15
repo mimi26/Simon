@@ -1,0 +1,61 @@
+body, html, main {
+  height: 100%;
+  width: 100%;
+}
+#red, #blue, #green, #yellow {
+  height: 47%;
+  width: 47%;
+  border: 1px solid black;
+  position: absolute;
+}
+
+#red {
+  background: rgba(255,0,0,.5);
+}
+
+.red-lit {
+  background:  rgba(255,0,0,1) !important;
+}
+
+#blue {
+  background: #1E90FF;
+  right: 0;
+}
+
+.blue-lit {
+  background: #00BFFF !important;
+}
+
+#green {
+  background: #339933;
+  bottom: 0;
+}
+
+.green-lit {
+  background: #33ee33 !important;
+}
+
+#yellow {
+  background: #ffee11;
+  right: 0;
+  bottom: 0;
+}
+
+.yellow-lit {
+  background: #ffff77 !important;
+}
+
+#board {
+  margin: 10% auto 10% auto;
+  position: relative;
+  height: 60%;
+  width: 30%;
+
+}
+
+#start {
+  position: absolute;
+  bottom: 20%;
+  left: 30%;
+  background: red;
+}
