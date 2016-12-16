@@ -1,11 +1,22 @@
 
+//GLOBALS==============================================
 const start = document.querySelector('button');
 const redDiv = document.querySelector('#red');
 const blueDiv = document.querySelector('#blue');
 const greenDiv = document.querySelector('#green');
 const yellowDiv = document.querySelector('#yellow');
 const colorDivs = $('.color');
+
 let colors = [redDiv, blueDiv, greenDiv, yellowDiv];
+//END GLOBALS==============================================
+
+
+
+
+
+
+
+
 
 //const colors = [$('.red-lit'), $('.blue-lit'), $('.green-lit'), $('.yellow-lit')];
 //listen for start click
@@ -17,7 +28,7 @@ $('button').click(function() {
 // for (let i = 1; i <= roundNum; i++) {
 //const randColor = Math.floor((Math.random() * colors.length));
 //return randColor;
-firstRound();
+play();
 // }
 })
 
@@ -37,7 +48,7 @@ firstRound();
 //first round:
 let roundNum = 0;
 let userClicks = 0;
-let shown = [];
+let shown = []; // colors simon shows
 let clickedColors = [];
 
 
@@ -65,20 +76,18 @@ let clickedColors = [];
  const sequence = ['red', 'blue', 'green', 'red', 'red', 'yellow', 'blue'];
 
   function play() {
- //roundNum should be = to number of elements in sequence pushed into shown
-  //blinkRed();
-  for (let j = 0; j <= roundNum; j++) {
+  for (let j = 0; j <=  roundNum; j++) {
   shown.push(sequence[j]);
   console.log("this is the current contents of shown array: ", shown);
  }
-console.log(shown);
+
 console.log('click colors to repeat sequence')
   pushResponse();
-  console.log(shown.length);
-  console.log(userClicks);
-  if (userClicks === shown.length) {
-    play ();
-  }
+  console.log('this is shown.length: ', shown.length);
+  console.log('userClicks', userClicks);
+  // if (userClicks === shown.length) {
+  //   play ();
+  // }
 }
 
 // function showSequence() {
@@ -101,6 +110,8 @@ console.log('click colors to repeat sequence')
 
   function pushResponse() {
 
+    if(roundNum > 0) return;
+
     for (let i=0;i<colorDivs.length;i++) {
 
       colorDivs[i].addEventListener('click', function() {
@@ -109,16 +120,18 @@ console.log('click colors to repeat sequence')
           blinkRed();
           clickedColors.push('red');
           userClicks++;
-          console.log(clickedColors);
+          console.log('clickedColors: ',
+            clickedColors);
           checkResponse();
+
         } else if (colorDivs[i] === blueDiv) {
           console.log("you clicked blue!")
           blinkBlue();
           clickedColors.push('blue');
           userClicks++;
-          console.log(clickedColors);
+          console.log('clickedColors:',clickedColors);
           checkResponse();
-          console.log(clickedColors);
+
         } else if (colorDivs[i] === greenDiv) {
           console.log("you clicked green!")
           blinkGreen();
@@ -145,27 +158,36 @@ console.log('click colors to repeat sequence')
     console.log("clickedColors: ", clickedColors);
     console.log('shown: ', shown);
     for (let i = 0; i < shown.length; i++) {
+      console.log('shown[i]:',shown[i]);
+      console.log('clickedColors[i]:',clickedColors[i]);
 
+      if (shown[i] !== clickedColors[i] && userClicks===shown.length) {
 
-      if (shown[i] === clickedColors[i] && userClicks === roundNum) {
-
-        console.log("successfully compared")
-        userSuccess = true;
-
-      } else {
+        console.log("game over")
         userSuccess = false;
-        console.log('game over');
+
+      } else if (userSuccess = true) {
+
+        console.log('successfully comapred');
 
     }
+    console.log('userClicks: ', userClicks);
+    console.log('roundNum: ', roundNum);
   }
-  if (userSuccess === true && userClicks === roundNum) {
+  if (userSuccess === true && userClicks===shown.length) {
     roundNum ++;
-
+    console.log('roundNum: ', roundNum);
     clickedColors = [];
-    console.log(roundNum);
+    console.log('clickedColors post clearing: ', clickedColors);
+    shown = [];
+    userClicks = 0;
+    console.log('shown post clearing: ', shown);
+
+    play();
+
   }
 
-  play();
+
 }
 
 
