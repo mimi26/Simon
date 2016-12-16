@@ -17,7 +17,7 @@ $('button').click(function() {
 // for (let i = 1; i <= roundNum; i++) {
 //const randColor = Math.floor((Math.random() * colors.length));
 //return randColor;
-firstRound()
+firstRound();
 // }
 })
 
@@ -36,19 +36,65 @@ firstRound()
 //user clicks start, calls showSequence
 //first round:
 let roundNum = 0;
+let userClicks = 0;
 let shown = [];
 let clickedColors = [];
 
 
-function firstRound() {
-  const sequence = ['red'];
-  blinkRed();
-  shown.push('red');
+// function firstRound() {
+//   const sequence = ['red'] //, 'blue', 'green', 'red', 'red', 'yellow', 'blue'];
+//   blinkRed();
+//   shown.push('red');
+// console.log(shown);
+// console.log('click colors to repeat sequence')
+//   pushResponse();
+
+//   }
+
+// for (let i = 0; i < sequence.length; i++) {
+//   if (sequence[i] === 'red') {
+//     blinkRed();
+//   } else if (sequence[i] === 'blue') {
+//     blinkBlue();
+//   } else if (sequence[i] === 'green') {
+//     blinkGreen();
+//   } else if (sequence[i] === 'yellow') {
+//     blinkYellow();
+//     }
+//   }
+ const sequence = ['red', 'blue', 'green', 'red', 'red', 'yellow', 'blue'];
+
+  function play() {
+ //roundNum should be = to number of elements in sequence pushed into shown
+  //blinkRed();
+  for (let j = 0; j <= roundNum; j++) {
+  shown.push(sequence[j]);
+  console.log("this is the current contents of shown array: ", shown);
+ }
 console.log(shown);
 console.log('click colors to repeat sequence')
   pushResponse();
-
+  console.log(shown.length);
+  console.log(userClicks);
+  if (userClicks === shown.length) {
+    play ();
+  }
 }
+
+// function showSequence() {
+// const sequence = ['red', 'blue', 'green', 'red', 'red', 'yellow', 'blue'];
+//   let shown = [];
+// let roundNum = 0;
+// for (let i = 0 ; i < sequence.length; i++) {
+//    shown.push(sequence[i]);
+// }
+// if (roundNum === shown.length) {
+
+// }
+
+
+
+
 
 //how to go into second round? recurse?
 //firstRound()
@@ -62,13 +108,14 @@ console.log('click colors to repeat sequence')
           console.log("you clicked red!")
           blinkRed();
           clickedColors.push('red');
+          userClicks++;
           console.log(clickedColors);
           checkResponse();
-          console.log(clickedColors);
         } else if (colorDivs[i] === blueDiv) {
           console.log("you clicked blue!")
           blinkBlue();
           clickedColors.push('blue');
+          userClicks++;
           console.log(clickedColors);
           checkResponse();
           console.log(clickedColors);
@@ -76,11 +123,15 @@ console.log('click colors to repeat sequence')
           console.log("you clicked green!")
           blinkGreen();
           clickedColors.push('green');
+          userClicks++;
+          checkResponse();
           console.log(clickedColors);
         } else if (colorDivs[i] === yellowDiv) {
           console.log("you clicked yellow!")
           blinkYellow();
           clickedColors.push('yellow');
+          userClicks++;
+          checkResponse();
           console.log(clickedColors);
         }
 
@@ -95,21 +146,26 @@ console.log('click colors to repeat sequence')
     console.log('shown: ', shown);
     for (let i = 0; i < shown.length; i++) {
 
-      // for (let j = 0; j < clickedColors.length; j++) {
-      if (shown[i] === clickedColors[i]) {
-        // roundNum++;
+
+      if (shown[i] === clickedColors[i] && userClicks === roundNum) {
+
         console.log("successfully compared")
         userSuccess = true;
-        console.log(roundNum);
+
       } else {
         userSuccess = false;
         console.log('game over');
-        // }
+
     }
   }
-  if (userSuccess === true) {
-    roundNum++;
+  if (userSuccess === true && userClicks === roundNum) {
+    roundNum ++;
+
+    clickedColors = [];
+    console.log(roundNum);
   }
+
+  play();
 }
 
 
@@ -120,23 +176,13 @@ console.log('click colors to repeat sequence')
 //calls checkResponse.
 //results in array clickedColors
 
-// function showSequence() {
-// const sequence = ['red', 'blue', 'green', 'red', 'red', 'yellow', 'blue'];
-//   let shown = [];
-// let roundNum = 0;
-// for (let i = 0 ; i < sequence.length; i++) {
-//   //let roundNum = shown.length;
-//   shown.push(sequence[i]);
-// //if (clickedColors === sequence) {
-//   roundNum++;
-// //}
-// //showSequence();
-//   //shown.length === roundNum
 
-// console.log(roundNum);
-//    console.log(shown);
-//   }
-// }
+//if (clickedColors === sequence) {
+
+
+//showSequence();
+  //shown.length === roundNum
+
 
 //after sequence is shown, wait for user input.
 //create an array of user clicks.
@@ -146,20 +192,6 @@ console.log('click colors to repeat sequence')
 //tested, works
 
 
-// function lightUp() {
-
-//   for (let i = 0; i < colorDivs.length; i++) {
-//   const randColor = Math.floor((Math.random() * colors.length));
-// //console.log(colorDivs[i]);
-// console.log(colors[randColor]);
-//   if ($(colorDivs[i]).hasClass(colors[randColor])) {
-//     $(colorDivs[i]).removeClass(colors[randColor]);
-//   } else {
-//     $(colorDivs[i]).addClass(colors[randColor]);
-//   }
-// }
-// }
-// lightUp();
 
 
 //   //pick color from array at random
