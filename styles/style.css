@@ -3,6 +3,13 @@ body, html, main {
   width: 100%;
   background-color: black;
 }
+h1 {
+  color: white;
+  text-align: center;
+  margin: 1%;
+  font-size: 50px;
+  font-family: 'Cherry Cream Soda', cursive;
+}
 #red, #blue, #green, #yellow {
   height: 47%;
   width: 47%;
@@ -72,24 +79,38 @@ body, html, main {
 
 #start {
   position: absolute;
-  bottom: 15%;
-  left: 25%;
+  bottom: 8%;
+  left: 20%;
   background: rgba(255, 0, 255, 1);
-   height: 5%;
+  height: 5%;
   width: 5%;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 18px;
+  line-height: 5%;
 
 }
 
 #message {
   color: white;
-
   height: 90px;
-  width: 40%;
-  border: 2px solid white;
-text-align: center;
-  margin: 3% auto 4% auto;
+  width: 43%;
+  /*border: 2px solid white;
+  border-radius: 10%;*/
+  text-align: center;
+  margin: 0 auto 4% auto;
   line-height: 90px;
-  font-size: 30px;
+  font-size: 26px;
+  font-family: 'Gloria Hallelujah', cursive;
+
+}
+
+#score {
+  color: white;
+  position: absolute;
+  right: 16%;
+  top: 20%;
+  border-bottom: 1px solid white;
+  font-family: 'Gloria Hallelujah', cursive;
 
 }
 

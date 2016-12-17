@@ -157,6 +157,7 @@ function checkResponse() {
   if (userSuccess === true && userClicks === shown.length) {
 
     roundNum++;
+    $('#score').html(`Score:  ${roundNum}`);
     clickedColors = [];
     shown = [];
     userClicks = 0;
