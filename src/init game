@@ -1,0 +1,52 @@
+init game
+start - startGame(){
+  call sequence;
+}
+  game provide a sequence for round 1
+  User tries to match sequence
+  game check the correctness of sequence and users seequence
+
+
+  game provide a sequence for round 1
+  User tries to match sequence
+  game check the correctness of sequence and users sequence
+
+
+  idea 1 :
+
+  - create a shown array that stores what was shown to user.
+
+  - create a clickedColors array that stores what was clicked by user.
+
+  _ loop through the arrays to compare them to each other.
+
+  - if/else statement to say that if the two arrays are same, go to the next round, but
+
+  - if they are not the same, 'game over'
+
+  What worked in idea1:
+
+  - for one round (sequence of one):  - successfully showed the color to user
+                                      - successfully stored user click in userClick array.
+                                      - successfully incremented to round = 2;
+
+
+What didn't work in idea1:
+
+- After user clicks once on first color in the sequence, the play function seems to be looping back to the beginning rather than
+waiting for user to finish clicking.
+what is needed here: a way to wait untill user clicks the total number of colors in the sequence before the code starts
+evalutating anything. possibly: a userclicks var that counts how many times the user clicked. don't run eval function until userclicks
+is = to the roundNum.
+
+- the shown array is not clearing so that the first color in sequence duplicates, ex: the array should be ['red', 'blue'...]
+instead it's showing ['red', 'red', 'blue']
+what is needed: to find the right spot in the code to clear shown array. where should that happen?
+
+- game over is displaying after the player clicks the first time, even if they click correctly.
+
+- function comparing userClicks array to shown array is only comparing the first element, so coming up as true
+
+
+
+
