@@ -12,10 +12,12 @@ let userClicks = 0;
 let shown = [];
 let clickedColors = [];
 //END GLOBALS==============================================
-
+$('#message').html(`Click Start To Begin`);
 $('button').click(function() {
   play();
-  // }
+
+ $('#message').html(`Click on colors to repeat the sequence shown`);
+
 })
 
 const sequence = ['red', 'blue', 'green', 'yellow'];
@@ -142,7 +144,7 @@ function checkResponse() {
     console.log('clickedColors[i]:', clickedColors[i]);
 
     if (shown[i] !== clickedColors[i] && userClicks === shown.length) {
-
+      $('#message').html(`Game Over`);
       console.log("game over")
       userSuccess = false;
 
