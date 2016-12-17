@@ -1,49 +1,65 @@
 body, html, main {
   height: 100%;
   width: 100%;
+  background-color: black;
 }
 #red, #blue, #green, #yellow {
   height: 47%;
   width: 47%;
-  border: 1px solid black;
+  border: 3px solid white;
   position: absolute;
   border-radius: 5% ;
 }
 
 #red {
-  background: rgba(255,0,0,.5);
+  background: rgba(255,0,0,.6);
+  transition: border 1s;
 }
 
 .red-lit {
-  background:  rgba(255,0,0,1) !important;
+  background-color:  rgba(255,0,0,1) !important;
+  border: 10px solid white !important;
 }
 
+
 #blue {
-  background: #1E90FF;
+
+ background-color: rgba(0, 0, 255, .6);
   right: 0;
+  transition: border 1s;
 }
 
 .blue-lit {
-  background: #00BFFF !important;
+
+ background: rgba(0, 0, 255, 1) !important;
+ border: 10px solid white !important;
 }
 
 #green {
-  background: #339933;
+
+  background: rgba(0, 255, 0, .6);
   bottom: 0;
+  transition: border 1s;
 }
 
 .green-lit {
-  background: #33ee33 !important;
+
+  background: rgba(0, 255, 0, 1) !important;
+  border: 10px solid white !important;
 }
 
 #yellow {
-  background: #ffee11;
+  /*background: #ffee11;*/
+  background: rgba(255, 250, 0, .7);
   right: 0;
   bottom: 0;
+  transition: border 1s;
 }
 
 .yellow-lit {
-  background: #ffff77 !important;
+
+  background: rgba(255, 255, 0, 1) !important;
+  border: 10px solid white !important;
 }
 
 #board {
