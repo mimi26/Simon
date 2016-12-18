@@ -5,8 +5,6 @@ const blueDiv = document.querySelector('#blue');
 const greenDiv = document.querySelector('#green');
 const yellowDiv = document.querySelector('#yellow');
 const colorDivs = $('.color');
-
-const colors = [redDiv, blueDiv, greenDiv, yellowDiv];
 let roundNum = 0;
 let userClicks = 0;
 let shown = [];
@@ -27,74 +25,56 @@ const sequence = ['red', 'yellow', 'blue', 'green'];
 let simonBlinks;
 function play() {
   console.log('PLAY>>>>>>>>>>>>>')
-  for (let j = 0; j <= roundNum; j++) {
+
     let randColor = Math.floor((Math.random() * sequence.length));
     shown.push(sequence[randColor]);
     console.log('shown: ', shown);
 
     simonBlinks = setTimeout(blinkSequence, 1000);
-
-  }
-  pushResponse();
+    pushResponse();
 }
 
-let redLight;
-let blueLight;
-let greenLight;
-let yellowLight;
 function blinkSequence() {
   for (i = 0; i < shown.length; i++) {
     console.log('this is shown[i]: ', shown[i]);
   if (shown[i] === 'red') {
-    window.clearTimeout(redLight);
-    redLight = setTimeout(function () {
-
+       setTimeout(function () {
       $('#red').addClass('red-lit');
       console.log('red class added');
       setTimeout(function () {
     $('#red').removeClass('red-lit');
-  }, 400);
+      }, 400);
       console.log('red class removed')
-    }, i * 800);
-
-
-    } else if (shown[i] === 'blue')  {
-      window.clearTimeout(blueLight);
-      blueLight = setTimeout(function () {
-
+      }, i * 800);
+        } else if (shown[i] === 'blue') {
+       setTimeout(function () {
       $('#blue').addClass('blue-lit');
       console.log('blue class added');
       setTimeout(function () {
     $('#blue').removeClass('blue-lit');
-  }, 400);
+      }, 400);
       console.log('blue class removed')
-    }, i * 800)
-
-
-    } else if (shown[i] === 'green') {
-      window.clearTimeout(greenLight);
-      greenLight = setTimeout(function () {
+      }, i * 800)
+        } else if (shown[i] === 'green') {
+      setTimeout(function () {
 
       $('#green').addClass('green-lit');
       console.log('green class added');
       setTimeout(function () {
     $('#green').removeClass('green-lit');
-  }, 400);
+      }, 400);
       console.log('green class removed');
-    }, i * 800)
-
-
-    } else if (shown[i] === 'yellow') {
-       window.clearTimeout(yellowLight);
-    yellowLight = setTimeout(function () {
+      }, i * 800)
+        } else if (shown[i] === 'yellow') {
+      setTimeout(function () {
 
       $('#yellow').addClass('yellow-lit');
       console.log('yellow class added');
       setTimeout(function () {
     $('#yellow').removeClass('yellow-lit');
-  }, 400);
+      }, 400);
       console.log('yellow class removed')
-    }, i * 800);
+      }, i * 800);
     }
   }
 }
@@ -146,9 +126,9 @@ function checkResponse() {
       $('#message').html(`Game Over`);
       console.log("game over")
       userSuccess = false;
-
-    } else if (userSuccess = true) {
-
+      shown = [];
+    } else  {
+      userSuccess = true;
       console.log('successfully compared');
 
     }
@@ -158,7 +138,7 @@ function checkResponse() {
     roundNum++;
     $('#score').html(`Score:  ${roundNum}`);
     clickedColors = [];
-    shown = [];
+
     userClicks = 0;
 
     play();
@@ -220,6 +200,6 @@ function blinkYellow() {
 
 
 // setInterval(function testLight() {
-//   $('#red').css('backgroundColor', 'rgba(255,0,0, .5)') ? $('#red').css('backgroundColor', 'rgba(255, 0, 0, 1)') :
-//   $('#red').css('backgroundColor', 'rgba(255, 0, 0, .5)');
+//   $('#red').css('backgroundColor', 'rgba(255,0,0, .6)') ? $('#red').css('backgroundColor', 'rgba(255, 0, 0, 1)') :
+//   $('#red').css('backgroundColor', 'rgba(255, 0, 0, .6)');
 // }, 1000);
