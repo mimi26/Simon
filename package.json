@@ -1,10 +1,10 @@
 {
   "name": "simon",
   "version": "1.0.0",
-  "description": "game project unit 1",
+  "description": "unit 1 project",
   "main": "index.js",
   "scripts": {
-    "test": "touch test.txt"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mimi26/Simon#readme",
   "devDependencies": {
-    "eslint": "^3.12.1",
+    "eslint": "^3.12.2",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.2.0"
   }

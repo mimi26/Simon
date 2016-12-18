@@ -6,13 +6,15 @@ const greenDiv = document.querySelector('#green');
 const yellowDiv = document.querySelector('#yellow');
 const colorDivs = $('.color');
 
-let colors = [redDiv, blueDiv, greenDiv, yellowDiv];
+const colors = [redDiv, blueDiv, greenDiv, yellowDiv];
 let roundNum = 0;
 let userClicks = 0;
 let shown = [];
 let clickedColors = [];
 //END GLOBALS==============================================
+
 $('#message').html(`Click Start To Begin`);
+
 $('button').click(function() {
   play();
 
@@ -20,13 +22,14 @@ $('button').click(function() {
 
 })
 
-const sequence = ['red', 'blue', 'green', 'yellow'];
+const sequence = ['red', 'yellow', 'blue', 'green'];
 
 let simonBlinks;
 function play() {
   console.log('PLAY>>>>>>>>>>>>>')
   for (let j = 0; j <= roundNum; j++) {
-    shown.push(sequence[j]);
+    let randColor = Math.floor((Math.random() * sequence.length));
+    shown.push(sequence[randColor]);
     console.log('shown: ', shown);
 
     simonBlinks = setTimeout(blinkSequence, 1000);
@@ -35,17 +38,13 @@ function play() {
   pushResponse();
 }
 
-// $('#red').on('click', function redBlink() {
-//   $('#red').addClass('red-lit');
-//   console.log('class removed');
-//   $('#red').removeClass('red-lit');
-// })
 let redLight;
 let blueLight;
 let greenLight;
 let yellowLight;
 function blinkSequence() {
   for (i = 0; i < shown.length; i++) {
+    console.log('this is shown[i]: ', shown[i]);
   if (shown[i] === 'red') {
     window.clearTimeout(redLight);
     redLight = setTimeout(function () {
