@@ -1,6 +1,6 @@
 # Simon
 
-![game screen shot](assest/images/simon.png)
+![game screen shot](assets/images/simon.png)
 
 ## Technologies used
 
