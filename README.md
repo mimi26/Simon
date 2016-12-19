@@ -4,11 +4,11 @@
 
 ## Technologies used
 
-HTML, CSS, JavaScript, JQuery
+HTML, CSS, JavaScript, JQuery, GitHub
 
 ## Project MVP
 
-Player clicks start to start game. Player is shown a sequence of colored blinks. One additional color is added for each round. A point is added to the score for each sequence repeated successfully. 
+Player clicks start button to start game. Player is shown a sequence of colored blinks. One additional color is added for each round. A point is added to the score for each sequence repeated successfully. 
 
 ## Contributors
 
@@ -16,4 +16,4 @@ Stefan Hartmann helped me refine the checkResponse function, and Patrick Andre h
 
 ## Possible future additions
 
-I would like to have the user be able to enter their name and store the users highest score. Also, the original Simon game starts slow and gradually speeds up. That would be a nice functionality to add as well. 
+I would like to have the user be able to enter their name and store and display the user's highest score. Also, the original Simon game starts slow and gradually speeds up. That would be a nice functionality to add as well. 
