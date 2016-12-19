@@ -8,7 +8,7 @@ let roundNum = 0;
 let userClicks = 0;
 let shown = [];
 let clickedColors = [];
-const sequence = ['red', 'yellow', 'blue', 'green'];
+const colors = ['red', 'yellow', 'blue', 'green'];
 //default message
 $('#message').html(`Click Start To Begin`);
 //start game when start button clicked.
@@ -18,21 +18,21 @@ $('button').click(function() {
   });
 //starts the game.
 function play() {
-    //creates a random number between 0 and 3. picks a color corresponding to number from sequence array and pushes it into shown array.
-    let randColor = Math.floor((Math.random() * sequence.length));
-    shown.push(sequence[randColor]);
-    console.log('shown: ', shown);
-    //delay before sequence is shown to player.
-    setTimeout(blinkSequence, 1000);
-    //call function that record player's response clicks.
-    pushResponse();
+  //creates a random number between 0 and 3. picks a color corresponding to number from colors array and pushes it into shown array.
+  let randColor = Math.floor((Math.random() * colors.length));
+  shown.push(colors[randColor]);
+  console.log('shown: ', shown);
+  //delay before sequence is shown to player.
+  setTimeout(blinkSequence, 1000);
+  //call the function that records player's response clicks.
+  pushResponse();
 }
+
 //function that tells game to blink for each color in shown array.
 //Delay is increased with each array element to get consecutive blinks.
 function blinkSequence() {
   for (i = 0; i < shown.length; i++) {
-    console.log('this is shown[i]: ', shown[i]);
-  if (shown[i] === 'red') {
+    if (shown[i] === 'red') {
       setTimeout(function () {
       $('#red').addClass('red-lit');
       setTimeout(function () {
@@ -63,15 +63,13 @@ function blinkSequence() {
     }
   }
 }
+
 //set event listener on color squares, to listen for user's response.
 //when user clicks record response by pushing into clickedColors array
 //allow color to blink when clicked so that user gets feedback.
 function pushResponse() {
-
   if (roundNum > 0) return; //keep event listeners from being reset after first round.
-
   for (let i = 0; i < colorDivs.length; i++) {
-
     colorDivs[i].addEventListener('click', function() {
       if (colorDivs[i] === redDiv) {
         blinkRed();
@@ -79,30 +77,29 @@ function pushResponse() {
         userClicks++;
         checkResponse();
       } else if (colorDivs[i] === blueDiv) {
-        blinkBlue();
-        clickedColors.push('blue');
-        userClicks++;
-        checkResponse();
+          blinkBlue();
+          clickedColors.push('blue');
+          userClicks++;
+          checkResponse();
       } else if (colorDivs[i] === greenDiv) {
-        blinkGreen();
-        clickedColors.push('green');
-        userClicks++;
-        checkResponse();
+          blinkGreen();
+          clickedColors.push('green');
+          userClicks++;
+          checkResponse();
       } else if (colorDivs[i] === yellowDiv) {
-        blinkYellow();
-        clickedColors.push('yellow');
-        userClicks++;
-        checkResponse();
+          blinkYellow();
+          clickedColors.push('yellow');
+          userClicks++;
+          checkResponse();
       }
-
     });
   }
 }
 
-//check shown array against clickedColors array to see if player gets point or loses.
+//check shown array against clickedColors array to see if player gets a point or loses.
 function checkResponse() {
   let userSuccess;
-      for (let i = 0; i < shown.length; i++) {
+    for (let i = 0; i < shown.length; i++) {
       if (shown[i] === clickedColors[i]  || clickedColors[i] === undefined) {
         userSuccess = true;
         } else  if (shown[i] !== clickedColors[i] && clickedColors[i] !== undefined) {
@@ -112,7 +109,6 @@ function checkResponse() {
     }
   }
   if (userSuccess === true && userClicks === shown.length) {
-
     roundNum++;
     $('#score').html(`Score:  ${roundNum}`);
     clickedColors = [];
