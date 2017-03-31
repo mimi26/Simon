@@ -12,7 +12,7 @@ Player clicks start button to start game. Player is shown a sequence of colored 
 
 ## Contributors
 
-Stefan Hartmann helped me refine the checkResponse function, and Patrick Andre helped me understand the event listeners. Tova Moskowitz (WDI alum) helped me refine my play and checkResponse functions and my setTimeouts to get the MVP working. 
+Mimi Klein
 
 ## Possible future additions
 

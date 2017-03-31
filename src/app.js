@@ -1,4 +1,3 @@
-const start = $('#button');
 const redDiv = document.querySelector('#red');
 const blueDiv = document.querySelector('#blue');
 const greenDiv = document.querySelector('#green');
@@ -13,8 +12,12 @@ const colors = ['red', 'yellow', 'blue', 'green'];
 $('#message').html(`Click Start To Begin`);
 //start game when start button clicked.
 $('button').click(function() {
- play();
- $('#message').html(`Click on colors to repeat the sequence shown`);
+  if(roundNum === 0) {
+  play();
+  $('#message').html(`Click on colors to repeat the sequence shown`);
+    } else if (roundNum > 0) {
+      $('#message').html(`Game in progress`);
+    }
   });
 //starts the game.
 function play() {
@@ -104,8 +107,11 @@ function checkResponse() {
         userSuccess = true;
         } else  if (shown[i] !== clickedColors[i] && clickedColors[i] !== undefined) {
          $('#message').html(`Game Over`);
+         console.log('this is clickedColors in checkResponse:', clickedColors)
          userSuccess = false;
+         roundNum = 0;
          shown = [];
+         clickedColors = [];
     }
   }
   if (userSuccess === true && userClicks === shown.length) {
